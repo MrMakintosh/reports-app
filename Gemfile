@@ -10,6 +10,7 @@ gem 'devise'
 gem 'devise-i18n'
 
 group :development do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'spork-rails'
