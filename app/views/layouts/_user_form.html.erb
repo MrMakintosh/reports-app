@@ -1,0 +1,44 @@
+<center>
+  <h1 style="color: white">Войдите в систему!</h1>
+</center>
+<table style="width: 100%; margin-top: 5%">
+  <tr>
+    <td style="border-right: 3px solid lightgray; text-align: center; padding-top: 7%; padding-bottom: 7%">
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+          <div class="field">
+            <%= f.label :email %><br />
+            <%= f.email_field :email, autofocus: true %>
+          </div>
+
+          <div class="field">
+            <span>Пароль</span><br />
+            <%= f.password_field :password, autocomplete: "off" %>
+          </div>
+
+          <% if devise_mapping.rememberable? -%>
+              <div class="field">
+                <%= f.check_box :remember_me %>
+                <span>Запомнить меня</span>
+              </div>
+          <% end -%>
+
+          <div class="input-button" style="margin-left: 30%; margin-top: 2%">
+            <%= f.submit "Вход" %>
+          </div>
+      <% end %>
+    </td>
+    <td style="width: 50%; padding-top: 7%; padding-bottom: 7%">
+      <div class="help">
+        <pre style="margin-left: 10%; text-align: justify">
+                Справочная информация:
+          _______________________________________
+
+          Если у Вас проблемы с авторизацией,
+          Обратитесь к Администратору системы для
+          Восстановления пароля
+          или для регистрации в системе.
+        </pre>
+      </div>
+    </td>
+  </tr>
+</table>
