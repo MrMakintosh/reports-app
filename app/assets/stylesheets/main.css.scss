@@ -2,7 +2,10 @@
     Developed by Alexander Buyanov, chaplin1488@gmail.com
  */
 body{
-    background-color: #87CEFA;
+    background-image: url("background.jpg");
+    background-size: 1500px;
+    font-weight: bold;
+    color: white;
 }
 /*
     USER_FORM
@@ -17,6 +20,7 @@ h2.info{
 }
 div.form{
     text-align: center;
+    margin-bottom: 30px;
 }
 div.field{
     padding-bottom: 20px;
@@ -37,6 +41,7 @@ div.input-button input{
     color: black;
     background-color: white;
     border-width: 0px;
+    font-weight: bold;
 }
 div.input-button :hover{
     border-width: 2px;
@@ -69,4 +74,48 @@ hr{
   width: 80%;
   border-color: white;
   margin-bottom: 30px;
+}
+
+/*
+  FOOTER
+ */
+footer{
+  width: 100%;
+  height: 100px;
+  text-align: center;
+}
+p.info-text{
+  color: white;
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+}
+div.problem-button input{
+  border-width: 0px;
+  border-radius: 5px;
+  height: 35px;
+  width: 230px;
+  background-color: white;
+  padding: 5px;
+  margin-bottom: 15px;
+  color: black;
+  font-weight: bold;
+  font-size: 12pt;
+}
+div.problem-button :hover{
+  border-width: 2px;
+  border-color: #87CEFA;
+}
+div.rights{
+  font-size: 12pt;
+  font-weight: bold;
+  color: white;
+  a{
+    color: white;
+    background-color: transparent;
+    text-decoration: none;
+  }
+  a:hover{
+    color: black;
+  }
 }
