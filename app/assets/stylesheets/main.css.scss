@@ -75,6 +75,26 @@ hr{
   border-color: white;
   margin-bottom: 30px;
 }
+div.login-info{
+  float: right;
+  margin-right: 15%;
+  background: transparent;
+  margin-top: 15px;
+}
+span.logout{
+  font-size: 16pt;
+  font-weight: bold;
+  color: white;
+  a{
+    color: white;
+    text-decoration: none;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+}
+span.logout :hover{
+  color: black;
+}
 
 /*
   FOOTER

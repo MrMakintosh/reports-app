@@ -4,8 +4,14 @@
   </div>
   <div class="login-info">
     <% if user_signed_in? %>
+        <span class="logout">
+          <% if current_user.email == "chaplin1488@gmail.com" %>
+            Hello, my master! |
+          <% else %>
+            <%= current_user.email %> |
+          <% end %>
+        </span>
         <span class="logout"><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></span>
-        <span class="logout" style="margin-right: 1%;"><%= current_user.email %> | </span>
     <% end %>
   </div>
 </header>
