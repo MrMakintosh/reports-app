@@ -1,0 +1,12 @@
+<header>
+  <div class="logo">
+    <%= link_to 'Reports_App', root_path %>
+  </div>
+  <div class="login-info">
+    <% if user_signed_in? %>
+        <span class="logout"><%= link_to 'Выйти', destroy_user_session_path, :method => :delete %></span>
+        <span class="logout" style="margin-right: 1%;"><%= current_user.email %> | </span>
+    <% end %>
+  </div>
+</header>
+<hr/>
