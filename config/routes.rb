@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'request/index'
+
+  get 'request/new'
+
   devise_for :users
   get 'persons/profile', as: 'user_root'
 
