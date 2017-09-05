@@ -139,3 +139,33 @@ div.rights{
     color: black;
   }
 }
+
+/*
+  USER-MENU
+ */
+div.user-menu{
+  text-align: center;
+  font-size: 14pt;
+  font-weight: bold;
+  color: white;
+  background-color: transparent;
+  table{
+    margin-left: 30%;
+    border-width: 0px;
+    background-color: transparent;
+    td{
+      padding: 20px;
+    }
+  }
+}
+td.vert-line{
+  border-right: 2px solid white;
+}
+div.instruction{
+  text-align: justify;
+  font-size: 14pt;
+  color: white;
+  background-color: transparent;
+  font-weight: bold;
+  width: 450px;
+}
