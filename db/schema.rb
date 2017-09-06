@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170903133613) do
+ActiveRecord::Schema.define(version: 20170905084755) do
+
+  create_table "requests", force: :cascade do |t|
+    t.string   "type",                   null: false
+    t.string   "message",                null: false
+    t.integer  "allowed",    default: 0, null: false
+    t.integer  "complited",  default: 0, null: false
+    t.string   "admin",                  null: false
+    t.integer  "user_id"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -25,6 +38,8 @@ ActiveRecord::Schema.define(version: 20170903133613) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "admin",                  default: 0,  null: false
+    t.string   "name"
+    t.string   "surname"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
