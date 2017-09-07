@@ -3,6 +3,11 @@ Rails.application.routes.draw do
 
   get 'request/new'
 
+  resources :request, :as => :request
+
+  ##Костыль!!!
+  post 'request/new', to: 'request#create'
+
   devise_for :users
   get 'persons/profile', as: 'user_root'
 

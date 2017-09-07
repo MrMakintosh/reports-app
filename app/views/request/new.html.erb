@@ -1,5 +1,18 @@
+<h2 class="info">
+  Оформление заявки
+</h2>
+<%= form_for(:request) do |f| %>
 <div class="form">
   <div class="field">
-    inputs will be here
+    <%= f.label 'Тип заявки' %><br/>
+    <%= f.select :type_of_problem, ['Проблемы с сетью или интернетом', 'Проблемы с принтером', 'Иное']%>
+  </div>
+  <div class="field">
+    <%= f.label 'Опишите Вашу проблему:' %><br/>
+    <%= f.text_area :message %>
+  </div>
+  <div class="input-button">
+    <%= f.submit 'Отправить заявку' %>
   </div>
 </div>
+<% end %>

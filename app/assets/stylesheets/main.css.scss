@@ -7,6 +7,10 @@ body{
     font-weight: bold;
     color: white;
 }
+#left{
+  float: left;
+  border-right: 2px solid white;
+}
 /*
     USER_FORM
  */
@@ -30,6 +34,22 @@ div.field input{
     font-size: 14pt;
     border-width: 0px;
     padding: 10px;
+}
+div.field textarea{
+  margin-top: 10px;
+  height: 150px;
+  width: 320px;
+  border: 0px;
+  border-radius: 5px;
+
+}
+div.field select{
+  height: 30px;
+  width: 250px;
+  border: 0px;
+  margin-top: 10px;
+  background-color: white;
+  border-radius: 5px;
 }
 div.input-button{
     padding-top: 20px;
@@ -168,4 +188,35 @@ div.instruction{
   background-color: transparent;
   font-weight: bold;
   width: 450px;
+}
+
+/*
+  FLASH MESSAGES
+ */
+.alert-error {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-alert {
+  background-color: #f2dede;
+  border-color: #eed3d7;
+  color: #b94a48;
+  text-align: left;
+}
+
+.alert-success {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
+}
+
+.alert-notice {
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  color: #468847;
+  text-align: left;
 }

@@ -14,17 +14,15 @@
 ActiveRecord::Schema.define(version: 20170905084755) do
 
   create_table "requests", force: :cascade do |t|
-    t.string   "type",                   null: false
-    t.string   "message",                null: false
-    t.integer  "allowed",    default: 0, null: false
-    t.integer  "complited",  default: 0, null: false
-    t.string   "admin",                  null: false
+    t.string   "type_of_problem",              null: false
+    t.string   "message",                      null: false
+    t.integer  "allowed",         default: 0,  null: false
+    t.integer  "complited",       default: 0,  null: false
+    t.string   "admin",           default: "", null: false
     t.integer  "user_id"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
-
-  add_index "requests", ["user_id"], name: "index_requests_on_user_id", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
