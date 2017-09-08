@@ -1,21 +1,29 @@
-<div class="user-menu">
-  <table>
-    <tr>
-      <td class="vert-line">
-        <div class="problem-button">
-          <input type="button" value="Отправить заявку" onclick="location.href='<%= request_new_url %>'">
-        </div>
-        <div class="problem-button">
-          <input type="button" value="Состояние Ваших заявок" onclick="location.href='<%= request_index_path %>'">
-        </div>
-      </td>
-      <td>
-        <!-- and here may be some instructions for pulling request for stupid users -->
-        <h2 class="info">Инструкция для тупых аутистов:</h2>
-        <div class="instruction">
-          Здесь должна быть примитивная инструкция, но я ее пока что не придумал :(
-        </div>
-      </td>
-    </tr>
-  </table>
-</div>
+<% unless current_user.admin == 1 %>
+  <div class="user-menu">
+    <table>
+      <tr>
+        <td class="vert-line">
+          <div class="problem-button">
+            <input type="button" value="Отправить заявку" onclick="location.href='<%= request_new_url %>'">
+          </div>
+          <div class="problem-button">
+            <input type="button" value="Состояние Ваших заявок" onclick="location.href='<%= request_index_path %>'">
+          </div>
+        </td>
+        <td>
+          <!-- and here may be some instructions for pulling request for stupid users -->
+          <h2 class="info">Инструкция для тупых аутистов:</h2>
+          <div class="instruction">
+            Здесь должна быть примитивная инструкция, но я ее пока что не придумал :(
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+<% else %>
+  <div class="user-menu">
+    <div class="problem-button">
+      <input type="button" onclick="location.href='<%= request_index_path %>'" value="Просмотр всех заявок"/>
+    </div>
+  </div>
+<% end %>

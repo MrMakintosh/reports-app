@@ -1,34 +1,77 @@
-<% unless @active_request.empty? %>
-  <h2 class="info">
-    Список Ваших активных заявок:
-  </h2>
-  <table class="request-table">
-    <tr>
-      <th>№</th>
-      <th>Тип проблемы</th>
-      <th>Комментарий пострадавшего</th>
-      <th>Состояние заявки</th>
-      <th>Администратор</th>
-      <th>Время регистрации заявки</th>
-    </tr>
-    <% @active_request.each do |a| %>
+<% unless current_user.admin == 1 %>
+  <% unless @active_request.empty? %>
+    <h2 class="info">
+      Список Ваших активных заявок:
+    </h2>
+    <table class="request-table">
       <tr>
-        <td><%= a.id %></td>
-        <td><%= a.type_of_problem %></td>
-        <td><%= a.message %></td>
-        <% if a.allowed > 0 %>
-            <td>Заявка принята</td>
-            <td>a.admin</td>
-        <% else %>
-            <td>Заявка еще не просмотрена</td>
-            <td>----</td>
-        <% end %>
-        <td><%= a.created_at %></td>
+        <th>№</th>
+        <th>Тип проблемы</th>
+        <th>Комментарий пострадавшего</th>
+        <th>Состояние заявки</th>
+        <th>Администратор</th>
+        <th>Время регистрации заявки</th>
       </tr>
-    <% end %>
-  </table>
+      <% @active_request.each do |a| %>
+        <tr>
+          <td><%= a.id %></td>
+          <td><%= a.type_of_problem %></td>
+          <td><%= a.message %></td>
+          <% if a.allowed > 0 %>
+              <td>Заявка принята</td>
+              <td>a.admin</td>
+          <% else %>
+              <td>Заявка еще не просмотрена</td>
+              <td>----</td>
+          <% end %>
+          <td><%= a.created_at %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <h2 class="info">
+      На данный момент Ваших активных заявок нет!
+    </h2>
+  <% end %>
 <% else %>
-  <h2 class="info">
-    На данный момент Ваших активных заявок нет!
-  </h2>
+    <h2 class="info">
+      Список заявок:
+    </h2>
+    <table class="request-table">
+      <tr>
+        <th></th>
+        <th>№</th>
+        <th>Тип проблемы</th>
+        <th>Комментарий пострадавшего</th>
+        <th>Состояние заявки</th>
+        <th>Администратор</th>
+        <th>Время регистрации заявки</th>
+      </tr>
+      <% @request.each do |a| %>
+          <tr>
+            <td>
+              <% if a.allowed > 0 && a.complited == 0 %>
+                <div class="input-button">
+                  <input type="button" onclick="location.href='<%= request_edit_path(a) %>'" value="Выполнено">
+                </div>
+              <% elsif a.allowed == 0 %>
+                <div class="input-button">
+                  <%= button_to 'Взять', update_request_path(a), :method => :post %>
+                </div>
+              <% end %>
+            </td>
+            <td><%= a.id %></td>
+            <td><%= a.type_of_problem %></td>
+            <td><%= a.message %></td>
+            <% if a.allowed > 0 %>
+                <td>Заявка принята</td>
+                <td><%= a.admin %></td>
+            <% else %>
+                <td>Заявка еще не просмотрена</td>
+                <td>----</td>
+            <% end %>
+            <td><%= a.created_at %></td>
+          </tr>
+      <% end %>
+    </table>
 <% end %>

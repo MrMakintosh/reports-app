@@ -1,0 +1,11 @@
+<div class="form">
+  <% form_for @request do |r| %>
+    <div class="field">
+      <%= r.label 'Отчет администратора' %>
+      <%= r.text_area :admin_message %>
+    </div>
+    <div class="input-button">
+      <%= r.submit 'Выполнено' %>
+    </div>
+  <% end %>
+</div>
