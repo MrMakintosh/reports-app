@@ -7,6 +7,7 @@ class CreateRequests < ActiveRecord::Migration
       t.integer :allowed, default:0, null:false
       t.integer :complited, default:0, null:false
       t.string :admin, null:false, default:''
+      t.string :admin_message, default:''
       t.belongs_to :user
 
       t.timestamps null: false

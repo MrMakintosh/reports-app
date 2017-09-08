@@ -1,0 +1,34 @@
+<% unless @active_request.empty? %>
+  <h2 class="info">
+    Список Ваших активных заявок:
+  </h2>
+  <table class="request-table">
+    <tr>
+      <th>№</th>
+      <th>Тип проблемы</th>
+      <th>Комментарий пострадавшего</th>
+      <th>Состояние заявки</th>
+      <th>Администратор</th>
+      <th>Время регистрации заявки</th>
+    </tr>
+    <% @active_request.each do |a| %>
+      <tr>
+        <td><%= a.id %></td>
+        <td><%= a.type_of_problem %></td>
+        <td><%= a.message %></td>
+        <% if a.allowed > 0 %>
+            <td>Заявка принята</td>
+            <td>a.admin</td>
+        <% else %>
+            <td>Заявка еще не просмотрена</td>
+            <td>----</td>
+        <% end %>
+        <td><%= a.created_at %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <h2 class="info">
+    На данный момент Ваших активных заявок нет!
+  </h2>
+<% end %>

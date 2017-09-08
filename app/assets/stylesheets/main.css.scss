@@ -193,30 +193,34 @@ div.instruction{
 /*
   FLASH MESSAGES
  */
-.alert-error {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
-  text-align: left;
-}
-
-.alert-alert {
-  background-color: #f2dede;
-  border-color: #eed3d7;
-  color: #b94a48;
-  text-align: left;
-}
 
 .alert-success {
   background-color: #dff0d8;
   border-color: #d6e9c6;
   color: #468847;
-  text-align: left;
+  text-align: center;
+  width: 300px;
+  margin-left: 40%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
 
-.alert-notice {
-  background-color: #dff0d8;
-  border-color: #d6e9c6;
-  color: #468847;
-  text-align: left;
+/*
+  TABLE OF REQUESTS
+ */
+
+table.request-table{
+  width: 90%;
+  margin-left: 5%;
+  font-size: 14pt;
+  margin-bottom: 30px;
+  td, th{
+    border-right: 2px solid white;
+    text-align: center;
+    padding: 2px;
+  }
+  th{
+    border-bottom: 2px solid white;
+  }
 }

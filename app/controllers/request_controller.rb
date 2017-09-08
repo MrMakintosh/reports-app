@@ -2,6 +2,7 @@ class RequestController < ApplicationController
   respond_to :html
 
   def index
+    @active_request = current_user.requests ## Recieve active requests for current user
   end
 
   def new

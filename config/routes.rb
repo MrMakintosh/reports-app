@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'request/new'
 
-  resources :request, :as => :request
+  resources :request
 
   ##Костыль!!!
   post 'request/new', to: 'request#create'
