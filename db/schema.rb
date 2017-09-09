@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170905084755) do
     t.integer  "allowed",         default: 0,  null: false
     t.integer  "complited",       default: 0,  null: false
     t.string   "admin",           default: "", null: false
+    t.string   "admin_message",   default: ""
     t.integer  "user_id"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false

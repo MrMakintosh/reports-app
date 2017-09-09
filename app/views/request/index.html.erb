@@ -12,14 +12,14 @@
         <th>Администратор</th>
         <th>Время регистрации заявки</th>
       </tr>
-      <% @active_request.each do |a| %>
+      <% @active_request.where(:complited => 0).each do |a| %>
         <tr>
           <td><%= a.id %></td>
           <td><%= a.type_of_problem %></td>
           <td><%= a.message %></td>
           <% if a.allowed > 0 %>
               <td>Заявка принята</td>
-              <td>a.admin</td>
+              <td><%= a.admin %></td>
           <% else %>
               <td>Заявка еще не просмотрена</td>
               <td>----</td>
@@ -46,6 +46,8 @@
         <th>Состояние заявки</th>
         <th>Администратор</th>
         <th>Время регистрации заявки</th>
+        <th>Отчет администратора</th>
+        <th>Время закрытия заявки</th>
       </tr>
       <% @request.each do |a| %>
           <tr>
@@ -71,6 +73,13 @@
                 <td>----</td>
             <% end %>
             <td><%= a.created_at %></td>
+            <% unless a.complited == 0 %>
+              <td><%= a.admin_message %></td>
+              <td><%= a.updated_at %></td>
+            <% else %>
+              <td>-----</td>
+              <td>-----</td>
+            <% end %>
           </tr>
       <% end %>
     </table>

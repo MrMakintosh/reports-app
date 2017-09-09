@@ -30,16 +30,18 @@ class RequestController < ApplicationController
     ## When button 'Взять' clicked
     if @request.allowed == 0
       unless @request.update_attribute(:allowed, 1) && @request.update_attribute(:admin, current_user.name + ' ' + current_user.surname)
-        render request_index_path, notice: @request.errors
+        redirect_to request_index_path, notice: @request.errors and return
       else
-        redirect_to request_index_path, notice: 'Заявка успешно принята!'
+        redirect_to request_index_path, notice: 'Заявка успешно принята!' and return
       end
     end
 
     ## When button 'Выполнено' clicked
     if @request.allowed == 1 && @request.complited == 0
-      @request.update_attribute(:complited, 1)
-      redirect_to request_index_path, notice: 'Заявка успешно закрыта!'
+      @request.update_attribute(:complited, 1) and @request.update_attributes(request_params)
+      redirect_to request_index_path, notice: 'Заявка успешно закрыта!' and return
+    else
+      redirect_to request_index_path, notice: @request.errors
     end
   end
 

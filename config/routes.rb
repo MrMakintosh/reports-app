@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'request/new'
 
-  get 'request/:id/edit', to: 'request#update', as: 'request_edit'
+  get 'request/:id/edit', to: 'request#edit', as: 'request_edit'
 
   resources :request
 
