@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'request/:id/edit', to: 'request#edit', as: 'request_edit'
 
+  get 'persons/menu'
+
   resources :request
 
   ##Костыль!!!
@@ -13,6 +15,17 @@ Rails.application.routes.draw do
 
   devise_for :users
   get 'persons/profile', as: 'user_root'
+
+  ## Persons edit
+  get 'persons/:id/edit', to: 'persons#edit', as: 'persons_edit'
+  post 'persons/:id/edit', to: 'persons#update'
+
+  ## Persons destroy
+  delete 'persons/:id/destroy', to: 'persons#destroy', as: 'persons_destroy'
+
+  ## Persons new
+  get 'persons/new'
+  post 'persons/new', to: 'persons#create'
 
   root 'static_pages#index'
 

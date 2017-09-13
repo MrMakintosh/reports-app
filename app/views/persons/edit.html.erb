@@ -1,0 +1,37 @@
+<h2 class="info">
+  Редактирование пользователя
+</h2>
+<div class="form">
+  <%= form_for @user do |u| %>
+      <div class="field">
+        <%= u.label 'Изменение пароля' %><br>
+        <%= u.password_field :password %>
+        <span class="edit-pass-btn">
+            <%= u.submit 'OK' %>
+          </span>
+      </div>
+  <% end %>
+</div>
+<div class="form">
+  <%= form_for @user do |f| %>
+    <div class="field">
+      <%= f.label 'Имя' %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div class="field">
+      <%= f.label 'Фамилия' %><br>
+      <%= f.text_field :surname %>
+    </div>
+    <div class="field">
+      <%= f.label 'Кабинет' %><br>
+      <%= f.text_field :cabinet %>
+    </div>
+    <div class="field">
+      <%= f.label 'E-mail' %><br>
+      <%= f.text_field :email %>
+    </div>
+    <div class="input-button">
+      <%= f.submit 'Сохранить' %>
+    </div>
+  <% end %>
+</div>

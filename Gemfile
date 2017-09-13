@@ -8,6 +8,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby'
 gem 'devise'
 gem 'devise-i18n'
+gem 'will_paginate'
 
 group :development do
   gem 'sqlite3'

@@ -1,0 +1,33 @@
+<h2 class="info">
+  Регистрация нового пользователя
+</h2>
+<div class="form">
+  <%= form_for @user do |f| %>
+      <div class="field">
+        <%= f.label 'Имя' %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label 'Фамилия' %><br>
+        <%= f.text_field :surname %>
+      </div>
+      <div class="field">
+        <%= f.label 'Кабинет' %><br>
+        <%= f.text_field :cabinet %>
+      </div>
+      <div class="field">
+        <%= f.label 'E-mail' %><br>
+        <%= f.text_field :email %>
+      </div>
+      <div class="field">
+        <%= f.label 'Пароль' %><br>
+        <%= f.password_field :password %>
+      </div>
+      <div class="field">
+        <%= f.check_box :admin %> Администратор
+      </div>
+      <div class="input-button">
+        <%= f.submit 'Зарегистрировать' %>
+      </div>
+  <% end %>
+</div>

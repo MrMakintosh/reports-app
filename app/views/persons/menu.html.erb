@@ -1,0 +1,40 @@
+<div class="user-menu">
+  <h2 class="info">
+    Меню редактирования пользователей
+  </h2>
+  <div class="problem-button">
+    <input type="button" onclick="location.href='<%= persons_new_path %>'" value="Регистрация пользователя">
+  </div>
+</div>
+<table class="request-table">
+  <tr>
+    <th></th>
+    <th>№</th>
+    <th>Имя</th>
+    <th>Фамилия</th>
+    <th>Кабинет</th>
+    <th>E-mail</th>
+  </tr>
+  <% @user.each do |u| %>
+    <% if u.admin == 1 %>
+      <tr class="admin">
+    <% else %>
+      <tr>
+    <% end %>
+        <td>
+          <div class="input-button">
+            <input type="button" value="Редактировать" onclick="location.href='<%= persons_edit_path(u) %>'">
+          </div>
+          <div class="input-button">
+            <%= link_to 'Удалить', persons_destroy_path(u), method: :delete, data: {confirm: 'Вы уверены?'} %>
+          </div>
+        </td>
+        <td><%= u.id %></td>
+        <td><%= u.name %></td>
+        <td><%= u.surname %></td>
+        <td><%= u.cabinet %></td>
+        <td><%= u.email %></td>
+      </tr>
+      <%= will_paginate @user %>
+  <% end %>
+</table>

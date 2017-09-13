@@ -26,6 +26,7 @@
           <% end %>
           <td><%= a.created_at %></td>
         </tr>
+        <%= will_paginate @active_request %>
       <% end %>
     </table>
   <% else %>
@@ -42,6 +43,7 @@
         <th></th>
         <th>№</th>
         <th>Тип проблемы</th>
+        <th>Кабинет</th>
         <th>Комментарий пострадавшего</th>
         <th>Состояние заявки</th>
         <th>Администратор</th>
@@ -64,6 +66,7 @@
             </td>
             <td><%= a.id %></td>
             <td><%= a.type_of_problem %></td>
+            <td><%= User.find(a.user_id).cabinet %></td>
             <td><%= a.message %></td>
             <% if a.allowed > 0 %>
                 <td>Заявка принята</td>
@@ -81,6 +84,7 @@
               <td>-----</td>
             <% end %>
           </tr>
+          <%= will_paginate @request %>
       <% end %>
     </table>
 <% end %>

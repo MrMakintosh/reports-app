@@ -63,9 +63,30 @@ div.input-button input{
     border-width: 0px;
     font-weight: bold;
 }
+div.input-button a{
+  padding: 5px;
+  padding-right: 42px;
+  padding-left: 42px;
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  border-width: 0px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 12pt;
+}
 div.input-button :hover{
     border-width: 2px;
     border-color: #87CEFA;
+}
+span.edit-pass-btn input{
+  height: 41px;
+  width: 45px;
+  border-radius: 5px;
+  color: black;
+  background-color: white;
+  border-width: 0px;
+  font-weight: bold;
 }
 
 /*
@@ -200,7 +221,7 @@ div.instruction{
   color: #468847;
   text-align: center;
   width: 300px;
-  margin-left: 40%;
+  margin-left: 38%;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -223,4 +244,7 @@ table.request-table{
   th{
     border-bottom: 2px solid white;
   }
+}
+tr.admin{
+  background-color: black;
 }
