@@ -35,6 +35,6 @@
         <td><%= u.cabinet %></td>
         <td><%= u.email %></td>
       </tr>
-      <%= will_paginate @user %>
   <% end %>
+  <%= will_paginate @user, :previous_label => 'Предыдущая', :next_label => 'Следующая' %>
 </table>

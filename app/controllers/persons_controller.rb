@@ -4,7 +4,7 @@ class PersonsController < ApplicationController
   end
 
   def menu
-    @user = User.paginate(:page => params[:page])
+    @user = User.paginate(:page => params[:page], :per_page => 5)
   end
 
   def index

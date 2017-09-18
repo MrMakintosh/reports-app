@@ -2,8 +2,8 @@ class RequestController < ApplicationController
   respond_to :html
 
   def index
-    @active_request = current_user.requests.paginate(:page => params[:page]) ## Recieve active requests for current user
-    @request = Request.paginate(:page => params[:page])
+    @active_request = current_user.requests.paginate(:page => params[:page], :per_page => 5) ## Recieve active requests for current user
+    @request = Request.paginate(:page => params[:page], :per_page => 5)
   end
 
   def new

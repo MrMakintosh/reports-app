@@ -24,10 +24,10 @@
               <td>Заявка еще не просмотрена</td>
               <td>----</td>
           <% end %>
-          <td><%= a.created_at %></td>
+          <td><%= a.created_at.strftime("%d.%m.%Y | %H:%M:%S") %></td>
         </tr>
-        <%= will_paginate @active_request %>
       <% end %>
+      <%= will_paginate @active_request, :previous_label => 'Предыдущая', :next_label => 'Следующая' %>
     </table>
   <% else %>
     <h2 class="info">
@@ -75,16 +75,16 @@
                 <td>Заявка еще не просмотрена</td>
                 <td>----</td>
             <% end %>
-            <td><%= a.created_at %></td>
+            <td><%= a.created_at.strftime("%d.%m.%Y | %H:%M:%S") %></td>
             <% unless a.complited == 0 %>
               <td><%= a.admin_message %></td>
-              <td><%= a.updated_at %></td>
+              <td><%= a.updated_at.strftime("%d.%m.%Y | %H:%M:%S") %></td>
             <% else %>
               <td>-----</td>
               <td>-----</td>
             <% end %>
           </tr>
-          <%= will_paginate @request %>
       <% end %>
+      <%= will_paginate @request, :previous_label => 'Предыдущая', :next_label => 'Следующая' %>
     </table>
 <% end %>
