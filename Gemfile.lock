@@ -200,6 +200,7 @@ GEM
       rspec-mocks (~> 3.5.0)
       rspec-support (~> 3.5.0)
     rspec-support (3.5.0)
+    ruby-ole (1.2.12.1)
     ruby_dep (1.5.0)
     rubyzip (1.2.0)
     sass (3.4.22)
@@ -222,6 +223,8 @@ GEM
     spork-rails (4.0.0)
       rails (>= 3.0.0, < 5)
       spork (>= 1.0rc0)
+    spreadsheet (1.1.4)
+      ruby-ole (>= 1.0)
     spring (2.0.0)
       activesupport (>= 4.2)
     sprockets (3.7.0)
@@ -279,6 +282,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selenium-webdriver
   spork-rails
+  spreadsheet
   spring
   sqlite3
   turbolinks

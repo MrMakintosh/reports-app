@@ -1,0 +1,24 @@
+<% if @report.empty? %>
+  <h2 class="info">Нет отчетов для показа.</h2>
+<% else %>
+  <h2 class="info">Имеющиеся отчеты:</h2>
+  <%= will_paginate @report, :previous_label => 'Предыдущая', :next_label => 'Следующая' %>
+  <table class="request-table">
+    <tr>
+      <th></th>
+      <th>Даты заявок</th>
+    </tr>
+    <% @report.each do |r| %>
+      <tr>
+        <td>
+          <div class="input-button">
+            <a href="<%= r.placement %>" download>Скачать</a>
+          </div>
+        </td>
+        <td>
+          За <%= r.created_at.prev_month.strftime("%B %Y") %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

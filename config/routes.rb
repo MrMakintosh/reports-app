@@ -35,4 +35,7 @@ Rails.application.routes.draw do
 
   get 'users/sign_in', to: 'static_pages#index'
 
+  ## Reports
+  get '/reports/index'
+
 end
