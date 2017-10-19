@@ -1,0 +1,14 @@
+<h2 class="info">Хуй сгенеришь сейчас</h2>
+<div class="user-menu">
+  <div class="form">
+    <%= form_for :reports do |f| %>
+      <div class="field">
+        <%= f.select :month, ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] %>
+        <%= f.select :year, ["2017"] %>
+      </div>
+      <div class="input-button">
+        <%= f.submit 'Сгенерировать' %>
+      </div>
+    <% end %>
+  </div>
+</div>

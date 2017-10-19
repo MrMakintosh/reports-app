@@ -1,3 +1,8 @@
+<div class="user-menu">
+  <div class="input-button">
+    <input type="button" class="problem-button" value="Создать отчет" onclick="location.href='<%= reports_new_path %>'">
+  </div>
+</div>
 <% if @report.empty? %>
   <h2 class="info">Нет отчетов для показа.</h2>
 <% else %>
