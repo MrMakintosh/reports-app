@@ -26,8 +26,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :surname
 
-      ## Cabinet
+      ## Cabinet and phone
       t.integer :cabinet
+      t.string  :phone
 
       ## Confirmable
       # t.string   :confirmation_token
