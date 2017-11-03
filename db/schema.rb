@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20170918142910) do
     t.string   "name"
     t.string   "surname"
     t.integer  "cabinet"
+    t.string   "phone"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

@@ -3,32 +3,14 @@
     <h2 class="info">
       Список Ваших активных заявок:
     </h2>
-    <table class="request-table">
-      <tr>
-        <th>№</th>
-        <th>Тип проблемы</th>
-        <th>Комментарий пострадавшего</th>
-        <th>Состояние заявки</th>
-        <th>Администратор</th>
-        <th>Время регистрации заявки</th>
-      </tr>
+    <%= will_paginate @active_request, :previous_label => 'Предыдущая', :next_label => 'Следующая' %>
+    <div class="user-menu">
       <% @active_request.where(:complited => 0).each do |a| %>
-        <tr>
-          <td><%= a.id %></td>
-          <td><%= a.type_of_problem %></td>
-          <td><%= a.message %></td>
-          <% if a.allowed > 0 %>
-              <td>Заявка принята</td>
-              <td><%= a.admin %></td>
-          <% else %>
-              <td>Заявка еще не просмотрена</td>
-              <td>----</td>
-          <% end %>
-          <td><%= a.created_at.strftime("%d.%m.%Y | %H:%M:%S") %></td>
-        </tr>
+          <div class="problem-button">
+              <input type="button" value="<%= a.created_at.strftime("%d.%m.%Y | %H:%M:%S")%>" onclick="location.href='<%= request_show_path(a) %>'">
+          </div>
       <% end %>
-      <%= will_paginate @active_request, :previous_label => 'Предыдущая', :next_label => 'Следующая' %>
-    </table>
+    </div>
   <% else %>
     <h2 class="info">
       На данный момент Ваших активных заявок нет!
@@ -44,7 +26,7 @@
         <th>№</th>
         <th>Тип проблемы</th>
         <th>Кабинет</th>
-        <th>Комментарий пострадавшего</th>
+        <th>Комментарий заявителя</th>
         <th>Состояние заявки</th>
         <th>Администратор</th>
         <th>Время регистрации заявки</th>

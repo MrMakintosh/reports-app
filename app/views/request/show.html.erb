@@ -1,0 +1,26 @@
+<h2 class="info">Информация о заявке</h2>
+<div class="user-menu">
+  <div class="problem-button">
+    <input type="button" value="Назад" onclick="location.href='<%= request_index_path %>'">
+  </div>
+</div>
+<div class="field">
+  <p>
+    Тип проблемы: <%= @request.type_of_problem %>
+  </p>
+  <p>
+    Ваш комментарий: <%= @request.message %>
+  </p>
+  <% if @request.allowed > 0 %>
+    <p>
+      Состояние заявки: Принята
+    </p>
+    <p>
+      Администратор: <%= @request.admin %>
+    </p>
+  <% else %>
+    <p>
+      Состояние заявки: Еще не просмотрена
+    </p>
+  <% end %>
+</div>

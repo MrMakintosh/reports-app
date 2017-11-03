@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   ##Костыль!!!
   post 'request/new', to: 'request#create'
   post 'request/:id/edit', to: 'request#update', as: 'update_request'
+  get  'request/:id', to: 'request#show', as: 'request_show'
 
   devise_for :users
   get 'persons/profile', as: 'user_root'

@@ -6,6 +6,10 @@ class RequestController < ApplicationController
     @request = Request.paginate(:page => params[:page], :per_page => 5)
   end
 
+  def show
+    @request = Request.find(params[:id])
+  end
+
   def new
     @request = Request.new
   end

@@ -28,6 +28,7 @@ div.form{
 }
 div.field{
     padding-bottom: 20px;
+    text-align: center;
 }
 div.field input{
     height: 20px;
@@ -50,6 +51,11 @@ div.field select{
   margin-top: 10px;
   background-color: white;
   border-radius: 5px;
+}
+div.field p, p a{
+  color: white;
+  font-weight: bold;
+  font-size: 15pt;
 }
 div.input-button{
     padding-top: 20px;
@@ -227,7 +233,6 @@ div.instruction{
   color: #468847;
   text-align: center;
   width: 300px;
-  margin-left: 38%;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;

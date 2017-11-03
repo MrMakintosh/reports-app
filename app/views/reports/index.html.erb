@@ -1,3 +1,4 @@
+<% ##TODO: write fucking commit! %>
 <div class="user-menu">
   <div class="input-button">
     <input type="button" class="problem-button" value="Создать отчет" onclick="location.href='<%= reports_new_path %>'">
@@ -21,7 +22,7 @@
           </div>
         </td>
         <td>
-          За <%= r.created_at.prev_month.strftime("%B %Y") %>
+          За <%= r.month %> <%= r.year %>
         </td>
       </tr>
     <% end %>

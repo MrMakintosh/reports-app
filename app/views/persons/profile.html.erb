@@ -1,25 +1,11 @@
 <% unless current_user.admin == 1 %>
   <div class="user-menu">
-    <table>
-      <tr>
-        <td class="vert-line">
-          <div class="problem-button">
-            <input type="button" value="Отправить заявку" onclick="location.href='<%= request_new_url %>'">
-          </div>
-          <div class="problem-button">
-            <input type="button" value="Состояние Ваших заявок" onclick="location.href='<%= request_index_path %>'">
-          </div>
-        </td>
-        <td>
-          <!-- and here may be some instructions for pulling request for stupid users -->
-          <h2 class="info">Инструкция:</h2>
-          <div class="instruction">
-            Вам стоит лишь нажать кнопку "Отправить заявку" и описать вашу проблему, следуя полям формы.<br>
-            Также можно проверять состояние вашей заявки, нажав на вторую кнопку.
-          </div>
-        </td>
-      </tr>
-    </table>
+    <div class="problem-button">
+      <input type="button" value="Отправить заявку" onclick="location.href='<%= request_new_url %>'">
+    </div>
+    <div class="problem-button">
+      <input type="button" value="Состояние Ваших заявок" onclick="location.href='<%= request_index_path %>'">
+    </div>
   </div>
 <% else %>
   <div class="user-menu">
