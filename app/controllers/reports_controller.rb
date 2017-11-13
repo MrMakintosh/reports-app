@@ -35,8 +35,8 @@ class ReportsController < ApplicationController
         break
       end
     end
-    @report.update_attribute :placement, "#{Rails.root}/public/documents/#{report_params[:month]} #{report_params[:year]}.xls"
-    if @report.save and @book.write "#{Rails.root}/public/documents/#{report_params[:month]} #{report_params[:year]}.xls"
+    @report.update_attribute :placement, "#{Rails.root}/documents/#{report_params[:month]} #{report_params[:year]}.xls"
+    if @report.save and @book.write "#{Rails.root}/documents/#{report_params[:month]} #{report_params[:year]}.xls"
       flash[:notice] = 'Отчет успешно сгенерирован'
       redirect_to reports_index_path
     else
