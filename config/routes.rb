@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get 'reports/index'
   get 'reports/new'
 
+  get 'reports/:id/download', to: 'reports#download', as: 'reports_download'
   post 'reports/new', to: 'reports#create'
 
 end

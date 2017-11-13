@@ -7,6 +7,10 @@ class ReportsController < ApplicationController
     @report = Report.new
   end
 
+  def download
+    send_file Report.find(params[:id]).placement, type: 'application/excel', disposition: 'attachment'
+  end
+
   def create
     @report = Report.new(report_params)
     @request_monthly = Request.all.map{|t| t if t.created_at.strftime("%B") == report_params[:month]}
@@ -31,8 +35,8 @@ class ReportsController < ApplicationController
         break
       end
     end
-    @report.update_attribute :placement, "#{Rails.root}/documents/#{report_params[:month]} #{report_params[:year]}.xls"
-    if @report.save and @book.write "#{Rails.root}/documents/#{report_params[:month]} #{report_params[:year]}.xls"
+    @report.update_attribute :placement, "#{Rails.root}/public/documents/#{report_params[:month]} #{report_params[:year]}.xls"
+    if @report.save and @book.write "#{Rails.root}/public/documents/#{report_params[:month]} #{report_params[:year]}.xls"
       flash[:notice] = 'Отчет успешно сгенерирован'
       redirect_to reports_index_path
     else

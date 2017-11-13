@@ -1,4 +1,3 @@
-<% ##TODO: write fucking commit! %>
 <div class="user-menu">
   <div class="input-button">
     <input type="button" class="problem-button" value="Создать отчет" onclick="location.href='<%= reports_new_path %>'">
@@ -18,7 +17,7 @@
       <tr>
         <td>
           <div class="input-button">
-            <a href="<%= r.placement %>" download>Скачать</a>
+            <%= link_to 'Скачать', reports_download_url(r, :format => :xls), download: '' %>
           </div>
         </td>
         <td>
