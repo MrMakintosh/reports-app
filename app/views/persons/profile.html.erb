@@ -8,6 +8,9 @@
     </div>
   </div>
 <% else %>
+  <h2 class="info">
+    <%= @active_request.count %> активных заявок(<%= @new_request.count %> новых)
+  </h2>
   <div class="user-menu">
     <div class="problem-button">
       <input type="button" onclick="location.href='<%= request_index_path %>'" value="Просмотр всех заявок"/>

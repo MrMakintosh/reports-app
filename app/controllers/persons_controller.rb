@@ -1,6 +1,15 @@
 class PersonsController < ApplicationController
 
   def profile
+    @active_request = [] ## array of requests in progress
+    @new_request = [] ## array of new requests
+    Request.all.each do |a|
+      if a.allowed == 1 and a.complited == 0
+        @active_request.push a
+      elsif a.allowed == 0
+        @new_request.push a
+      end
+    end
   end
 
   def menu
