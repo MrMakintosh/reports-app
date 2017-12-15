@@ -13,14 +13,11 @@ class ReportsController < ApplicationController
 
   def create
     @report = Report.new(report_params)
-    ##TODO: refactor this shit
+    ##TODO: stupid developer like me changed code in master brunch... need to commit changes and do smth with report files(add to gitignore file)
     @request_monthly = []
     r = Request.all.map{|t| t if t.created_at.strftime("%B") == report_params[:month]}
-    r.each do |a|
-      if a.nil?
-        next
-      end
-      @request_monthly.push a
+    Request.all.each do |a|
+      @request_monthly.push a if a.created_at.strftime("%B") == report_params[:month]
     end
     @book = Spreadsheet::Workbook.new
     @sheet = @book.create_worksheet :name => "Report for #{report_params[:month]} #{report_params[:year]}"
