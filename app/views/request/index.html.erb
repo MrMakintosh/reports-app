@@ -33,7 +33,7 @@
         <th>Отчет администратора</th>
         <th>Время закрытия заявки</th>
       </tr>
-      <% @request.order('created_at DESC').each do |a| %>
+      <% @request.order('complited').each do |a| %>
           <tr>
             <td>
               <% if a.allowed > 0 && a.complited == 0 %>

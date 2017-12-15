@@ -1,18 +1,46 @@
-<h2 class="info">
-  Оформление заявки
-</h2>
-<%= form_for(:request) do |f| %>
-<div class="form">
-  <div class="field">
-    <%= f.label 'Тип заявки' %><br/>
-    <%= f.select :type_of_problem, ['Проблемы с сетью или интернетом', 'Проблемы с принтером', 'Замена катриджа', 'Иное']%>
+<% unless current_user.admin == 1 %>
+  <h2 class="info">
+    Оформление заявки
+  </h2>
+  <%= form_for(:request) do |f| %>
+  <div class="form">
+    <div class="field">
+      <%= f.label 'Тип заявки' %><br/>
+      <%= f.select :type_of_problem, ['Проблемы с сетью или интернетом', 'Проблемы с принтером', 'Замена катриджа', 'Выложить информацию на сайт', 'Взять мультимедийную установку', 'Ксерокопия', 'Печать', 'Иное']%>
+    </div>
+    <div class="field">
+      <%= f.label 'Опишите Вашу проблему:' %><br/>
+      <%= f.text_area :message %>
+    </div>
+    <div class="input-button">
+      <%= f.submit 'Отправить заявку' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label 'Опишите Вашу проблему:' %><br/>
-    <%= f.text_area :message %>
-  </div>
-  <div class="input-button">
-    <%= f.submit 'Отправить заявку' %>
-  </div>
-</div>
+  <% end %>
+<% else %>
+  <h2 class="info">
+    Админ-заявка
+  </h2>
+  <%= form_for(:request) do |f| %>
+      <div class="form">
+        <div class="field">
+          <%= f.label 'Тип заявки' %><br/>
+          <%= f.select :type_of_problem, ['Проблемы с сетью или интернетом', 'Проблемы с принтером', 'Замена катриджа', 'Выложить информацию на сайт', 'Взять мультимедийную установку', 'Ксерокопия', 'Печать', 'Иное']%>
+        </div>
+        <div class="field">
+          <%= f.label 'Что нужно сделать:' %><br/>
+          <%= f.text_area :message %>
+        </div>
+        <div class="field">
+          <%= f.label 'Проделанная работа:' %><br/>
+          <%= f.text_area :admin_message %>
+        </div>
+        <%= f.hidden_field :allowed, :value => 1 %>
+        <%= f.hidden_field :complited, :value => 1 %>
+        <%= f.hidden_field :admin, :value => "#{current_user.name} #{current_user.surname}" %>
+        <div class="input-button">
+          <%= f.submit 'Регистрация заявки' %>
+        </div>
+      </div>
+  <% end %>
 <% end %>

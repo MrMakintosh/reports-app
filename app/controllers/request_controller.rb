@@ -2,8 +2,9 @@ class RequestController < ApplicationController
   respond_to :html
 
   def index
-    @active_request = current_user.requests.paginate(:page => params[:page], :per_page => 5) ## Recieve active requests for current user
-    @request = Request.paginate(:page => params[:page], :per_page => 5)
+    @active_request = current_user.requests.paginate(:page => params[:page], :per_page => 10) ## Recieve active requests for current user
+    @request = Request.paginate(:page => params[:page], :per_page => 10)
+    @sorted_request = @request.sort_by { |r| r.complited }
   end
 
   def show
@@ -15,6 +16,7 @@ class RequestController < ApplicationController
   end
 
   def create
+    ##TODO: make interface for admin's request
     @user = current_user
     @request = @user.requests.new(request_params)
     if @request.save
