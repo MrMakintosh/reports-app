@@ -10,6 +10,7 @@ gem 'devise'
 gem 'devise-i18n'
 gem 'will_paginate'
 gem 'spreadsheet'
+gem 'telegram-bot-ruby'
 
 group :development do
   gem 'sqlite3'

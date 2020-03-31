@@ -20,6 +20,7 @@ class RequestController < ApplicationController
     @user = current_user
     @request = @user.requests.new(request_params)
     if @request.save
+      Telegramer::Notificator.call(@user)
       flash[:notice] = 'Ваша заявка успешно отправлена'
       redirect_to user_root_path
     else

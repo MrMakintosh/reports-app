@@ -21,3 +21,14 @@
 
 en:
   hello: "Hello world"
+  telegramer:
+    messages:
+      greeting: "Hello! Welcome to telegram bot of Reports App!"
+      instruction: "Commands:\n /start - Commands list\n email - Enabling notifications\n /stop - Disabling notifications"
+      notification_enabled: "Notifications have been enabled!"
+      notification_disabled: "Notifications have been disabled!"
+      new_request: "New request from %{user_name} from cabinet number %{cabinet}!"
+    errors:
+      did_not_understand: "Cannot recognise your message!"
+      mail_not_found: "Did not find user with that email!"
+

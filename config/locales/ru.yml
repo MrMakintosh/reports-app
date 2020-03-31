@@ -1,0 +1,11 @@
+ru:
+  telegramer:
+    messages:
+      greeting: "Здравствуйте! Вас приветствует телеграм бот приложения Reports App!"
+      instruction: "Список команд:\n /start - вернет список команд\n email - включение опопвещений о новых заявках\n /stop - отключение опопвещений"
+      notification_enabled: "Оповещения успешно включены!"
+      notification_disabled: "Оповещения успешно отключены!"
+      new_request: "Пришла новая завка от %{user_name} из кабинета %{cabinet}!"
+    errors:
+      did_not_understand: "Не смог разобрать Ваше сообщение!"
+      mail_not_found: "Не смог найти пользователя с данной почтой!"
