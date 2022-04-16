@@ -1,6 +1,5 @@
 require 'telegram/bot'
 
-puts "tratatat"
 group = ThreadGroup.new
 group.add(
   Thread.new do
