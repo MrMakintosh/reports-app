@@ -43,4 +43,12 @@ Rails.application.routes.draw do
   get 'reports/:id/download', to: 'reports#download', as: 'reports_download'
   post 'reports/new', to: 'reports#create'
 
+  namespace :api do
+    namespace :v1 do
+      resource :user
+      resource :request
+      resource :report
+    end
+  end
+
 end
