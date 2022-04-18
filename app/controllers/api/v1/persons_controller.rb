@@ -13,12 +13,8 @@ module Api
         end
       end
 
-      def menu
-        User.paginate(:page => params[:page], :per_page => 5)
-      end
-
       def index
-        User.all
+        User.paginate(:page => params[:page], :per_page => params[:per_page])
       end
 
       def new
@@ -26,10 +22,7 @@ module Api
       end
 
       def create
-        user = User.new(user_params)
-        return not_saved(user) unless user.save
-
-        user
+        Users::Creator.call(user_params)
       end
 
       def edit
@@ -37,10 +30,7 @@ module Api
       end
 
       def update
-        user = User.find(params[:id])
-        return not_saved(user) unless user.update(user_params)
-
-        user
+        Users::Updater.call(params)
       end
 
       def destroy
@@ -51,10 +41,6 @@ module Api
 
       def user_params
         params.require(:user).permit(:email, :phone, :password, :admin, :cabinet, :name, :surname)
-      end
-
-      def not_saved(user)
-        { error: t.errors.users.not_saved(user.errors.full_messages) }
       end
     end
   end
