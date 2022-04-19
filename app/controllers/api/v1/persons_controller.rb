@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class PersonsController < Api::BaseController
@@ -14,27 +16,33 @@ module Api
       end
 
       def index
-        User.paginate(:page => params[:page], :per_page => params[:per_page])
+        @result = User.paginate(:page => params[:page], :per_page => params[:per_page])
+        super
       end
 
       def new
-        User.new
+        @result = User.new
+        super
       end
 
       def create
-        Users::Creator.call(user_params)
+        @result = Users::Creator.call(user_params)
+        super
       end
 
       def edit
-        User.find(params[:id])
+        @result = User.find(params[:id])
+        super
       end
 
       def update
-        Users::Updater.call(params)
+        @result = Users::Updater.call(params)
+        super
       end
 
       def destroy
-        User.find(params[:id]).destroy
+        @result = User.find(params[:id]).destroy
+        super
       end
 
       private
