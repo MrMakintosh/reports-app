@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Users
-  class Creator < Base
+  class Creator < ApplicationService
     def initialize(params = {})
       @user = User.new(params)
     end
 
     def call
-      return not_saved(@user.errors.full_messages) unless @user.save
+      return not_saved(key: :users, errors: @user.errors.full_messages) unless @user.save
 
       @user
     end

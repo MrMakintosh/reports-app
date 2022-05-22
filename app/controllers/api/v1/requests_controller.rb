@@ -2,50 +2,33 @@ module Api
   module V1
     class RequestsController < Api::BaseController
       def index
-        @active_request = current_user.requests.paginate(:page => params[:page], :per_page => 10) ## Recieve active requests for current user
-        @request = Request.paginate(:page => params[:page], :per_page => 10)
-        @sorted_request = @request.sort_by { |r| r.complited }
+        @result = Requests::Indexer.call(params)
+        super
       end
 
       def show
-        Request.find(params[:id])
+        @result = Request.find(params[:id])
+        super
       end
 
       def new
-        Request.new
+        @result = Request.new
+        super
       end
 
       def create
-        request = current_user.requests.new(request_params)
-        if request.save
-          Telegramer::Notificator.call(current_user)
-        else
-          respond_to.html { redirect_to :action => :new, notice: @request.errors }
-        end
+        @result = Requests::Creator.call(request_params)
+        super
       end
 
       def edit
-        Request.find(params[:id])
+        @result = Request.find(params[:id])
+        super
       end
 
       def update
-        @request = Request.find(params[:id])
-        ## When button 'Взять' clicked
-        if @request.allowed == 0
-          unless @request.update_attribute(:allowed, 1) && @request.update_attribute(:admin, current_user.name + ' ' + current_user.surname)
-            @request.errors
-          else
-            @request
-          end
-        end
-
-        ## When button 'Выполнено' clicked
-        if @request.allowed == 1 && @request.complited == 0
-          @request.update_attribute(:complited, 1) and @request.update_attributes(request_params)
-          @request
-        else
-          @request.errors
-        end
+        @result = Requests::Updator.call(params: request_params.merge(id: params[:id]), user: current_user)
+        super
       end
 
       private
