@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Api
   module V1
     class PersonsController < Api::BaseController
@@ -13,48 +15,40 @@ module Api
         end
       end
 
-      def menu
-        User.paginate(:page => params[:page], :per_page => 5)
-      end
-
       def index
-        User.all
+        @result = User.paginate(:page => params[:page], :per_page => params[:per_page])
+        super
       end
 
       def new
-        User.new
+        @result = User.new
+        super
       end
 
       def create
-        user = User.new(user_params)
-        return not_saved(user) unless user.save
-
-        user
+        @result = Users::Creator.call(user_params)
+        super
       end
 
       def edit
-        User.find(params[:id])
+        @result = User.find(params[:id])
+        super
       end
 
       def update
-        user = User.find(params[:id])
-        return not_saved(user) unless user.update(user_params)
-
-        user
+        @result = Users::Updater.call(params)
+        super
       end
 
       def destroy
-        User.find(params[:id]).destroy
+        @result = User.find(params[:id]).destroy
+        super
       end
 
       private
 
       def user_params
         params.require(:user).permit(:email, :phone, :password, :admin, :cabinet, :name, :surname)
-      end
-
-      def not_saved(user)
-        { error: t.errors.users.not_saved(user.errors.full_messages) }
       end
     end
   end

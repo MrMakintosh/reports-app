@@ -45,9 +45,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resource :user
-      resource :request
-      resource :report
+      resources :persons, as: :users
+      resources :request
+      resources :report
     end
   end
 

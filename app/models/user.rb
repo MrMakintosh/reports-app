@@ -7,4 +7,8 @@ class User < ActiveRecord::Base
          :rememberable,
          :trackable,
          :validatable
+
+  def full_name
+    "#{name} #{surname}"
+  end
 end
